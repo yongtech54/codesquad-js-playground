@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>문자열 대/소/보통 판정 프로그램</h1>
+  <script>
+    var str = prompt("문자열을 입력하세요");
+
+    if (str === str.toUpperCase()) {
+      console.log("대문자만으로 이루어진 문장입니다");
+    } else if (str === str.toLowerCase()) {
+      console.log("소문자만으로 이루어진 문장입니다.");
+    } else {
+      console.log("보통 문장이군요!");
+    }
+  </script>
+</body>
+
+</html>

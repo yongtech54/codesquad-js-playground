@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>입력한 수들의 갯수와 합을 구하는 프로그램</h1>
+  <script>
+    var userInput = -1;
+    var cnt = -1;
+    var sum = 0;
+
+    while (userInput != 0) {
+      userInput = Number(prompt("정수를 입력하세요 (0을 입력하여 종료)"));
+      sum += userInput;
+      cnt++;
+    }
+
+    console.log("입력한 갯수 >> " + (cnt) + " / 정수 합 >> " + sum);
+  </script>
+</body>
+
+</html>

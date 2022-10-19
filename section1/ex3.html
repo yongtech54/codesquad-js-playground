@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>JavaScript 변수 활용 및 연산자</h1>
+  <script>
+    // 1. 증감연산자
+    var a = 3;
+    console.log(a++); // 3
+    console.log(a);   // 4
+    console.log(++a); // 5
+    console.log(a);   // 5
+
+    // 2. 문자열 조작
+    var str = "Hello JavaScript";
+    console.log(str[2]);  // l
+    console.log(str.slice(6, str.length)); // JavaScript
+    console.log(str.toLowerCase());
+    console.log(str.toUpperCase());
+
+    // 3. 사용자로부터 입력받아 알림창 띄우기
+    var userInput = prompt("문자열을 입력하세요");
+    alert("당신이 입력한 문자열은 " + userInput + "이군요!");
+  </script>
+</body>
+
+</html>
