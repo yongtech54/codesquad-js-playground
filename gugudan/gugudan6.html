@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] for문 활용하여 출력</title>
+</head>
+
+<body>
+  <div>
+    <h1>출력할 단</h1>
+    <input id="inputDan">
+    <button onclick="runGugudan()">확인</button>
+  </div>
+  <div>
+    <h3 id="title"></h3>
+    <div id="context"></div>
+  </div>
+  <script>
+    function runGugudan() {
+      var title = document.getElementById("title");
+      var inputDan = document.getElementById("inputDan").value;
+      var context = document.getElementById("context");
+
+      context.innerHTML = "";
+      title.innerHTML = inputDan + "단을 출력합니다";
+
+      for (var i = 1; i < 10; i++) {
+        context.innerHTML += inputDan + " * " + i + " = " + inputDan * i + "<br>";
+      }
+
+    }
+  </script>
+</body>
+
+</html>
