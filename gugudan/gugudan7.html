@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] if 조건문 활용하여 console 출력</title>
+</head>
+
+<body>
+  <h1>2단~9단만 허용하는 구구단 프로그램</h1>
+  <p>console을 확인하세요!</p>
+  <input id="userInput" type="text" placeholder="몇 단을 출력할까요?">
+  <button onclick="runGugudan()">입력</button>
+  <p id="context"></p>
+  <script>
+    function runGugudan() {
+      var dan = document.getElementById("userInput").value;
+      var context = document.getElementById("context");
+
+      if ((dan > 9) || (dan < 2)) {
+        context.innerHTML = "2단~9단 중 입력하세요!";
+      } else {
+        context.innerHTML = "출력 성공";
+        console.log("=============" + dan + "단=============");
+        for (var i = 1; i < 10; i++) {
+          console.log(dan + " * " + i + " = " + dan * i);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
