@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] while문 활용하여 출력</title>
+</head>
+
+<body>
+  <div>
+    <h1>출력할 단</h1>
+    <input id="dan">
+    <button onclick="runGugudan()">확인</button>
+    <h3 id="title"></h3>
+  </div>
+
+  <script>
+    function runGugudan() {
+      var title = document.getElementById("title");
+      var dan = document.getElementById("dan").value;
+      var i = 1;
+
+      title.innerHTML = dan + "단을 출력합니다!<br>console을 확인하세요!";
+
+      while (i < 10) {
+        console.log(dan + " * " + i + " = " + dan * i);
+        i++;
+      }
+
+    }
+  </script>
+</body>
+
+</html>
