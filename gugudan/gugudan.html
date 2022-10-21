@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] 최종 구현</title>
+</head>
+
+<body>
+  <h1>구구단 최종 프로그램 구현</h1>
+  <h3>요구사항</h3>
+  <ul>
+    <li>입력값에 따라 크기가 달라지는 구구단 출력</li>
+    <li>8, 7을 입력받는 경우 => 2 * 1, ..., 2 * 7, ..., 8 * 7</li>
+  </ul>
+  <div>
+    <input id="userInput" type="text" placeholder="정수 두 개를 입력하세요">
+    <button onclick="runGugudan()">출력</button>
+    <p id="context"></p>
+  </div>
+  <script>
+    // var inputNums = prompt("두 정수를 입력하세요 (usage: 2,3)").split(",");
+    function runGugudan() {
+      var inputNums = document.getElementById("userInput").value.split(",");
+      var context = document.getElementById("context");
+      var gugudan = {};
+      context.innerHTML = "";
+      gugudan.num1 = Number(inputNums[0]);
+      gugudan.num2 = Number(inputNums[1]);
+      gugudan.dan = 1;
+      gugudan.numbers = [];
+
+      gugudan.generate = function () {
+        for (var i = 0; i < this.num2; i++) {
+          this.numbers[i] = this.dan * (i + 1);
+        }
+      };
+      gugudan.print = function () {
+        context.innerHTML += "<h3>" + this.dan + "단으로 출력합니다" + "</h3>";
+        for (var i = 0; i < this.num2; i++) {
+          context.innerHTML += this.dan + " * " + (i + 1) + " = " + this.numbers[i] + "<br>";
+        }
+      };
+
+      for (var i = 2; i <= gugudan.num1; i++) {
+        gugudan.dan = i;
+        gugudan.generate();
+        gugudan.print();
+      }
+    }
+
+  </script>
+</body>
+
+</html>
