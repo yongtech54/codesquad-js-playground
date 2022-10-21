@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 ~ n 사이의 소수를 화면 출력</title>
+</head>
+
+<body>
+  <h1>1 - n 사이의 소수를 출력하는 프로그램</h1>
+  <h3>조건</h3>
+  <ul>
+    <li>HTML + JS로 작성</li>
+    <li>객체와 메소드를 사용</li>
+  </ul>
+  <input id="num" type="text" placeholder="소수를 출력합니다!">
+  <button onclick="runPrime()">출력</button>
+  <h5 id="title"></h5>
+  <p id="result"></p>
+
+  <script>
+    var runPrime = function () {
+
+      var inputNum = Number(document.getElementById("num").value);
+      var title = document.getElementById("title");
+      var result = document.getElementById("result");
+      var numbers = {};
+      numbers.allNum = [];
+      numbers.allPrime = [];
+
+      // method: 소수인 경우 배열에 저장
+      numbers.addPrime = function () {
+        for (var i = 0; i < this.allNum.length; i++) {
+          if (this.isPrime(this.allNum[i])) {
+            this.allPrime.push(this.allNum[i]);
+          }
+        }
+      };
+
+      // method: 인자값이 소수인지 아닌지 판별
+      numbers.isPrime = function (n) {
+        for (var i = 2; i < n; i++) {
+          if (n % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      };
+
+      // method: 2부터 입력받은 수 사이의 정수를 배열에 저장 
+      numbers.genNumbers = function (n) {
+        for (var i = 2; i < n; i++) {
+          this.allNum.push(i);
+        }
+      };
+
+      // method: 주어진 인자를 화면에 출력
+      numbers.display = function () {
+        // 기존 내용 지움
+        title.innerHTML = "";
+        result.innerHTML = "";
+
+        // 새로운 내용 출력
+        title.innerHTML = ">> " + inputNum + "까지 소수를 출력합니다!";
+        for (var i = 0; i < this.allPrime.length; i++) {
+          result.innerHTML += this.allPrime[i] + "<br>";
+        }
+      };
+
+      numbers.genNumbers(inputNum);
+      numbers.addPrime();
+      numbers.display();
+    };
+
+
+  </script>
+</body>
+
+</html>

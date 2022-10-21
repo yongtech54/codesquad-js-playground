@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>JavaScript 함수 기초</h1>
+  <script>
+    // 함수 정의
+    var foo = function (para) {
+      console.log("your input >> " + para);
+    }
+
+    // 함수 호출
+    foo("Hi");
+
+    // 리턴값 활용
+    var foo2 = function (n1, n2) {
+      return n1 + n2;
+    }
+
+    var x = foo2(10, 20);
+    console.log("함수 foo2에 의한 결과 >> " + x);
+
+    // return을 활용하여 이중 반복문 한번에 종료
+    var foo3 = function () {
+      for (var i = 0; i < 1000; i++) {
+        for (var j = 0; j < 1000; j++) {
+          if (i === 2 && j === 2) {
+            return;
+          }
+          console.log("i >> " + i + " j >> " + j);
+        }
+      }
+    }
+    foo3();
+  </script>
+</body>
+
+</html>

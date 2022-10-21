@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>JavaScript 배열과 문자열 1</h1>
+  <script>
+    // 배열 생성
+    var arr = [1, 2, 3, 4, 5];
+
+    // 인덱스 활용하여 배열의 원소 읽기
+    console.log(arr[0]);  // 1
+    console.log(arr[3]);  // 4
+
+    // 원소 값 변경
+    arr[0] = 11;
+    console.log(arr); // mutable
+    console.log(arr.length);
+
+    arr[arr.length] = 100;
+    console.log(arr);
+    console.log(arr.length);
+
+    // 배열관련 메소드
+    var x = arr.pop();
+    console.log(x);
+    console.log(arr);
+    arr.push(123);
+    console.log(arr);
+
+    arr.unshift(0);
+    console.log(arr);
+    arr.shift();
+    console.log(arr);
+  </script>
+</body>
+
+</html>
