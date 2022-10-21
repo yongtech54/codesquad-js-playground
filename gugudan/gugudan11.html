@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] 함수 활용한 구현</title>
+</head>
+
+<body>
+  <h1>함수 활용하여 구구단 구현</h1>
+  <h3>요구사항</h3>
+  <ul>
+    <li>함수 활용</li>
+    <li>메인함수 사용</li>
+    <li>전역변수의 사용은 최소화</li>
+  </ul>
+
+  <script>
+    function gugudan(num) {
+      var results = [];
+      for (var i = 0; i < 9; i++) {
+        results[i] = num * (i + 1);
+      }
+      return results;
+    }
+
+    function printer(num, results) {
+      document.write("<h2>" + num + "단 출력합니다!</h2>");
+      for (var i = 0; i < 9; i++) {
+        document.write(num + " * " + (i + 1) + " = " + results[i] + "<br>");
+      }
+    }
+
+    function main() {
+      for (var i = 2; i < 10; i++) {
+        var ans = gugudan(i);
+        printer(i, ans);
+      }
+    }
+
+    main();
+  </script>
+</body>
+
+</html>
