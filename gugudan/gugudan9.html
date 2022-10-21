@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[구구단] 이중 for문 및 배열 활용하여 console 출력</title>
+</head>
+
+<body>
+  <h1>배열을 활용한 구구단 구현 1</h1>
+  <h3>요구사항</h3>
+  <ul>
+    <li>2중 반복문 활용</li>
+    <li>구구단 결과를 배열에 저장한 후 배열 출력</li>
+    <li>console 출력</li>
+  </ul>
+  <p>하나의 배열에 전체 결과값을 저장하고 인덱스로 접근하며 값을 꺼내는 동시에 shift method를 활용함</p>
+  <script>
+    var results = [];
+
+    // 구구단 결과 배열에 저장
+    for (var i = 2; i < 10; i++) {
+      for (var j = 1; j < 10; j++) {
+        // 1차원 배열에 결과값 순서대로 저장
+        results.push(i * j);
+      }
+    }
+
+    for (var i = 2; i < 10; i++) {
+      console.log(i + "단을 출력합니다");
+      for (var j = 0; j < 9; j++) {
+        console.log(i + " * " + (j + 1) + " = " + results[j]);
+      }
+      for (var j = 0; j < 9; j++) {
+        results.shift();
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
