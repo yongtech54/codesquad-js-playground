@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>call by value, call by reference</h1>
+  <p>일반 변수 -> call by value</p>
+  <p>참조 변수 -> call by reference</p>
+
+  <script>
+    // 일반 변수 && call by value
+    var a = 10;
+    var b = a;
+    console.log(a === b);   // true
+    b += 1;
+    console.log(a === b);   // false
+
+    function add(a) {
+      a += 10;
+      console.log("함수 add에 의한 결과 >> " + a);
+    }
+
+    add(a);                // call by value로 a === 20
+    console.log(a);        // 전역변수 a는 변하지 않음 => a === 10
+
+    // 참조 변수 && call by reference
+    var p1 = { "name": "yeji", age: 21 };
+    var p2 = p1;
+    console.log(p1 === p2)  // true
+    p2.name = "yujin";
+    console.log(p1.name === p2.name); // true
+    console.log(p1.name);   // p2와 동일한 객체를 참조하므로 변경된 값이 공유됨
+
+    function team(target) {
+      target.team = "Itzy";
+    }
+    team(p1);               // call by reference
+    console.log(p1);        // team 속성 추가
+    console.log(p2.team);   // 마찬가지로 team 속성 추가
+  </script>
+</body>
+
+</html>

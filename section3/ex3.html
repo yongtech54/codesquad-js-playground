@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>생성자 함수를 활용한 객체</h1>
+  <p>다른 언어의 클래스에 대응되는 개념</p>
+
+  <script>
+
+    var Human = function (name, hp, power) {
+      this.name = name;
+      this.hp = hp;
+      this.power = power;
+      this.attack = function (target) {
+        target.hp -= this.power;
+      };
+      this.eat = function (food) {
+        this.hp += food.energy;
+      };
+    };
+
+    var Food = function (name, energy) {
+      this.name = name;
+      this.energy = energy;
+    };
+
+    var p1 = new Human("Yeji", 100, 10);
+    var p2 = new Human("Chaeryong", 100, 20);
+    var potion = new Food("potion", 10);
+
+    p2.attack(p1);
+    p1.eat(potion);
+  </script>
+</body>
+
+</html>

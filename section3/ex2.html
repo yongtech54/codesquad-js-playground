@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>switch-case</h1>
+  <p>if문과 같은 분기문의 하나</p>
+
+  <script>
+    var score = Number(prompt("1~5점 중 평점을 입력하세요"));
+
+    // break 키워드를 사용하지 않는 경우 break를 만날 때 까지 진행
+    switch (score) {
+      case 5:
+        console.log("최고 평점!");
+        break;
+      case 4:
+        console.log("좋은 영화였군요!");
+        break;
+      case 3:
+        console.log("보통이었군요...!");
+        break;
+      default:
+        console.log("안보는게 나았겠네요...");
+    }
+
+  </script>
+</body>
+
+</html>
