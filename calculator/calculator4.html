@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문자열 계산기] while문 적용</title>
+</head>
+
+<body>
+  <h1>문자열 계산기 4 - while문 적용</h1>
+  <div>
+    <h2>요구사항</h2>
+    <ul>
+      <li>prompt() 이용</li>
+      <li>다양한 연산자 적용</li>
+      <li>무한루프, q를 누르면 종료</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Result</h2>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    var result = document.getElementById("result");
+    var ans = Number(prompt("1번째 숫자를 입력하세요"));
+    var i = 2;
+    var op;
+
+    while (true) {
+      op = prompt("연산자를 입력하세요 (q를 누르면 종료)");
+
+      if (op === "q") {
+        break;
+      }
+
+      var num = Number(prompt(i + "번째 숫자를 입력하세요"));
+
+      switch (op) {
+        case "+":
+          ans += num;
+          break;
+        case "-":
+          ans -= num;
+          break;
+        case "*":
+          ans *= num;
+          break;
+        case "/":
+          ans /= num;
+          break;
+      }
+
+      i++;
+    }
+
+    result.innerHTML = "모든 연산의 결과 >> " + ans;
+
+  </script>
+</body>
+
+</html>
