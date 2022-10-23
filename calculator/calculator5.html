@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문자열 계산기] 함수 활용한 구현</title>
+</head>
+
+<body>
+  <h1>문자열 계산기 함수를 활용한 리팩토링</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>기능 추가 없이 기존의 코드를 함수화한 리팩토링 진행</li>
+    <li>함수는 하나의 기능을 가짐</li>
+  </ul>
+  <div>
+    <h2>Result</h2>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // 전역변수
+    var i = 2;
+
+    // 첫번째 입력을 받는 함수
+    function getFirstNumber() {
+      var ans = Number(prompt("1번째 숫자를 입력하세요"));
+      return ans;
+    }
+    // 두번째 입력을 받는 함수
+    function getSecondNumber() {
+      var num = Number(prompt(i + "번째 숫자를 입력하세요"));
+      i++;
+      return num;
+    }
+    // 연산자 입력
+    function getOperation() {
+      while (true) {
+        var op = prompt("연산자를 입력하세요 (q를 누르면 종료)");
+        if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+          return op;
+        } else {
+          alert("올바른 입력값이 아닙니다.");
+        }
+      }
+    }
+
+    // 연산자 점검하는 함수
+    function calculate(ans, op, num) {
+      switch (op) {
+        case "+":
+          ans += num;
+          return ans;
+        case "-":
+          ans -= num;
+          return ans;
+        case "*":
+          ans *= num;
+          return ans;
+        case "/":
+          ans /= num;
+          return ans;
+      }
+    }
+
+    // 화면에 출력하는 함수
+    function print(ans) {
+      var result = document.getElementById("result");
+      result.innerHTML = "모든 연산의 결과 >> " + ans;
+    }
+
+    // main
+    function main() {
+      var ans = getFirstNumber();
+      var op, num;
+
+      while (true) {
+        op = getOperation();
+        if (op === "q") {
+          break;
+        }
+        num = getSecondNumber();
+        ans = calculate(ans, op, num);
+      }
+      print(ans);
+    }
+
+    main();
+
+  </script>
+</body>
+
+</html>
