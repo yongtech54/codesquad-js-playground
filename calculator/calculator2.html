@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문자열 계산기] 사용자 입력 처리</title>
+</head>
+
+<body>
+  <h1>문자열 계산기 2 - 사용자 입력 처리</h1>
+  <div>
+    <h2>요구사항</h2>
+    <ul>
+      <li>사용자로부터 2개의 숫자를 입력 받아 사칙연산 출력</li>
+    </ul>
+  </div>
+  <div>
+    <input id="userInput" type="text">
+    <button onclick="main()">계산</button>
+    <h2>Result</h2>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function main() {
+      var userInput = document.getElementById("userInput").value.split(",");
+      var result = document.getElementById("result");
+      var num1 = userInput[0];
+      var num2 = userInput[1];
+      var ans_plus = num1 + num2;
+      var min_plus = num1 - num2;
+      var mul_plus = num1 * num2;
+      var div_plus = num1 / num2;
+
+      result.innerHTML = "";
+      result.innerHTML += "덧셈 >> " + num1 + " + " + num2 + " = " + ans_plus + "<br>";
+      result.innerHTML += "뺄셈 >> " + num1 + " - " + num2 + " = " + min_plus + "<br>";
+      result.innerHTML += "곱셈 >> " + num1 + " * " + num2 + " = " + mul_plus + "<br>";
+      result.innerHTML += "나눗셈 >> " + num1 + " / " + num2 + " = " + div_plus + "<br>";
+    }
+
+  </script>
+</body>
+
+</html>
