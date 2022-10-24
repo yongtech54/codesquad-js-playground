@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문자열 계산기] 객체 리팩토링</title>
+</head>
+
+<body>
+  <h1>문자열 계산기 6 - 객체를 활용한 리팩토링</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>기능 추가 없이 기존의 코드의 객체 리팩토링 진행</li>
+    <li>input 객체, 연산 객체, output 객체 이용</li>
+    <li>전역변수 사용 X</li>
+    <li>main() 사용</li>
+  </ul>
+  <div>
+    <h2>Result</h2>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // 1. input object
+    var input = { count: 2 };
+    input.getFirstNumber = function () {
+      var ans = Number(prompt("1번째 숫자를 입력하세요"));
+      return ans;
+    };
+
+    input.getSecondNumber = function () {
+      var num = Number(prompt(this.count + "번째 숫자를 입력하세요"));
+      this.count++;
+      return num;
+    };
+
+    input.getOperator = function () {
+      while (true) {
+        var op = prompt("연산자를 입력하세요 (q를 누르면 종료)");
+        if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+          return op;
+        } else {
+          alert("올바른 입력값이 아닙니다.");
+        }
+      }
+    };
+
+    // 2. calculator object 
+    var calculator = {};
+    calculator.runCalculator = function (ans, op, num) {
+      switch (op) {
+        case "+":
+          ans += num;
+          return ans;
+        case "-":
+          ans -= num;
+          return ans;
+        case "*":
+          ans *= num;
+          return ans;
+        case "/":
+          ans /= num;
+          return ans;
+      }
+    };
+
+    // 3. output object
+    var output = { resultMsg: document.getElementById("result") };
+    output.print = function (ans) {
+      this.resultMsg.innerHTML = "모든 연산의 결과 >> " + ans;
+    }
+
+    // 4. main function
+    function main() {
+      var result = input.getFirstNumber();
+      var inputOperator, inputNumber;
+
+      while (true) {
+        inputOperator = input.getOperator();
+        if (inputOperator === "q") {
+          break;
+        }
+        inputNumber = input.getSecondNumber();
+        result = calculator.runCalculator(result, inputOperator, inputNumber);
+      }
+      output.print(result);
+    }
+
+    main();
+
+  </script>
+</body>
+
+</html>
