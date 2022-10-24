@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[문자열 계산기] 한 줄로 입력받아 처리</title>
+  <style>
+    #inputEquation {
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>문자열 계산기 7 - 한 줄로 입력받아 처리</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>input tag에 한 줄로 입력받아 처리 (숫자와 연산자는 공백으로 구분)</li>
+    <li>사칙연산 우선순위가 아닌 입력 순서에 따른 처리</li>
+    <li>HTML 출력</li>
+  </ul>
+  <div>
+    <h2>input</h2>
+    equation >> <input id="inputEquation" type="text">
+    <button onclick="main()">계산</button>
+    <h2>Result</h2>
+    <div id="result">연산 대기중...</div>
+  </div>
+
+  <script>
+    var input = {};
+    input.getEquation = function () {
+      return document.getElementById("inputEquation").value.split(" ");
+    };
+
+    var calculator = {};
+    calculator.calculate = function (res, num, op) {
+      switch (op) {
+        case "+":
+          res += num;
+          break;
+        case "-":
+          res -= num;
+          break;
+        case "*":
+          res *= num;
+          break;
+        case "/":
+          res /= num;
+          break;
+      }
+      return res;
+    };
+
+    var output = {};
+    output.result = document.getElementById("result");
+    output.print = function (res) {
+      this.result.innerHTML = "<h3>연산 결과는 " + res + "입니다!</h3>";
+    }
+
+    function main() {
+      var op, num;
+      var equation = input.getEquation();
+      var res = Number(equation[0]);
+
+      for (var i = 1; i < equation.length; i += 2) {
+        op = equation[i];
+        num = Number(equation[i + 1]);
+        res = calculator.calculate(res, num, op);
+      }
+      output.print(res);
+    }
+
+  </script>
+</body>
+
+</html>
