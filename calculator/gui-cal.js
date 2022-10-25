@@ -69,6 +69,7 @@ output.display = function () {
 output.print = function (res) {
   var result = document.getElementById("result");
   result.innerHTML = res;
+  input.array.push(res);
 }
 
 // main logic
