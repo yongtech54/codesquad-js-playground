@@ -25,32 +25,33 @@
       <div class="calculator">
         <div id="result">0</div>
         <div id="btn1">
-          <button onclick="">7</button>
-          <button onclick="">8</button>
-          <button onclick="">9</button>
-          <button onclick="">/</button>
+          <button onclick="input.clickNumbers(event)">7</button>
+          <button onclick="input.clickNumbers(event)">8</button>
+          <button onclick="input.clickNumbers(event)">9</button>
+          <button onclick="input.clickOperator(event)">/</button>
         </div>
         <div id="btn2">
-          <button onclick="">4</button>
-          <button onclick="">5</button>
-          <button onclick="">6</button>
-          <button onclick="">*</button>
+          <button onclick="input.clickNumbers(event)">4</button>
+          <button onclick="input.clickNumbers(event)">5</button>
+          <button onclick="input.clickNumbers(event)">6</button>
+          <button onclick="input.clickOperator(event)">*</button>
         </div>
         <div id="btn3">
-          <button onclick="">1</button>
-          <button onclick="">2</button>
-          <button onclick="">3</button>
-          <button onclick="">-</button>
+          <button onclick="input.clickNumbers(event)">1</button>
+          <button onclick="input.clickNumbers(event)">2</button>
+          <button onclick="input.clickNumbers(event)">3</button>
+          <button onclick="input.clickOperator(event)">-</button>
         </div>
         <div id="btn4">
-          <button onclick="">del</button>
-          <button onclick="">0</button>
-          <button onclick="">=</button>
-          <button onclick="">+</button>
+          <button onclick="removeValue(event)">del</button>
+          <button onclick="input.clickNumbers(event)">0</button>
+          <button onclick="runCalculator(event)">=</button>
+          <button onclick="input.clickOperator(event)">+</button>
         </div>
       </div>
     </div>
   </div>
+  <script src="./gui-cal.js"></script>
 </body>
 
 </html>
