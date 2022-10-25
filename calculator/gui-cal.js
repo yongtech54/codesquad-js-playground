@@ -13,15 +13,61 @@ input.clickOperator = function (event) {
 };
 
 input.prepareCalculate = function () {
-  return this.array.join("").split(" ");
+  this.array = this.array.join("").split(" ");
+};
+
+input.isEmpty = function () {
+  return this.array.length;
+};
+
+
+var calculator = {};
+
+calculator.getNumber = function () {
+  var value = Number(input.array.shift());
+  return value;
+};
+
+calculator.getOperator = function () {
+  var value = input.array.shift();
+  return value;
 }
 
+calculator.calculate = function (res, op, nextNumber) {
+  switch (op) {
+    case "+":
+      res += nextNumber;
+      break;
+    case "-":
+      res -= nextNumber;
+      break;
+    case "*":
+      res *= nextNumber;
+      break;
+    case "/":
+      res /= nextNumber;
+      break;
+  }
+  return res;
+}
 var removeValue = function () {
   console.log("remove!");
 };
 
 var runCalculator = function () {
-  var values = input.prepareCalculate();
-  console.log(values);
-};
+  // 입력값 배열 정리
+  input.prepareCalculate();
 
+  // 초기값 초기화
+  var res = calculator.getNumber();
+
+  // 그 외의 변수들 선언
+  var op, nextNumber;
+
+  while (input.isEmpty()) {
+    op = calculator.getOperator();
+    nextNumber = calculator.getNumber();
+    res = calculator.calculate(res, op, nextNumber);
+  }
+  console.log(">>> " + res);
+};
