@@ -1,0 +1,42 @@
+html {
+  line-height: 1.25;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator {
+  width: 500px;
+  padding: 10px;
+}
+
+#result {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+button {
+  width: 100px;
+  padding: 30px;
+}
+
+#btn1,
+#btn2,
+#btn3,
+#btn4 {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+}
