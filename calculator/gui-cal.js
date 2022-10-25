@@ -1,4 +1,3 @@
-// input 객체 관련 속성 및 메소드 - 완료
 var input = {};
 input.array = [];
 
@@ -27,16 +26,19 @@ input.removeValue = function () {
   output.display();
 };
 
-// calculator 객체 관련 속성 및 메소드 - 완료
+
 var calculator = {};
+
 calculator.getNumber = function () {
   var value = Number(input.array.shift());
   return value;
 };
+
 calculator.getOperator = function () {
   var value = input.array.shift();
   return value;
 };
+
 calculator.calculate = function (res, op, nextNumber) {
   switch (op) {
     case "+":
@@ -57,6 +59,7 @@ calculator.calculate = function (res, op, nextNumber) {
 
 
 var output = {};
+
 output.display = function () {
   var result = document.getElementById("result");
   result.innerHTML = input.array.join("");
@@ -64,15 +67,14 @@ output.display = function () {
   if (input.array.length === 0) {
     result.innerHTML = "EMPTY";
   }
-}
+};
 
 output.print = function (res) {
   var result = document.getElementById("result");
   result.innerHTML = res;
   input.array.push(res);
-}
+};
 
-// main logic
 var runCalculator = function () {
   input.prepareCalculate();
   var res = calculator.getNumber();
