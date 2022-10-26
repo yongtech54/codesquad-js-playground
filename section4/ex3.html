@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>JS - 내장 객체</h1>
+  <script>
+    // 시간 측정 관련
+    var t1 = Date.now();  // [ms]
+    var t2 = Date.now();
+    console.log(t2 - t1); // 시간차
+
+    // math 관련
+    var pi = Math.PI;
+    var x = -10.3;
+    var absX = Math.abs(x);
+
+    console.log(absX);
+    console.log(Math.floor(absX));
+    console.log(Math.ceil(absX));
+    console.log(Math.round(absX));
+
+    var x = Math.random();  // 0~1 난수 생성
+    console.log(x);
+  </script>
+</body>
+
+</html>

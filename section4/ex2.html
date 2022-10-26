@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>JS - 재귀함수</h1>
+  <p>재귀함수, 단순 반복문 버젼으로 나누어 진행</p>
+  <script>
+    // 카운트다운 ver1. 반복문
+    var countdown = function (num) {
+      for (var i = num; i >= 0; i--) {
+        if (i === 0) {
+          console.log("Fire!");
+        }
+        console.log(i);
+      }
+    };
+
+    // 카운트다운 ver2. 재귀함수 
+    var countdownR = function (num) {
+      if (num <= 0) {
+        console.log("Re Fire!");
+        return;
+      }
+      console.log(num);
+      countdownR(num - 1);
+    };
+
+    countdown(5);
+    countdownR(5);
+
+    // 재귀함수 - a 부터 b까지 정수를 더해서 리턴해주는 함수 구현
+    var foo2 = function (a, b) {
+      var res;
+      if (a === b) {
+        return a;
+      }
+      return b + foo2(a, b - 1);
+    };
+
+    console.log(foo2(1, 10));  // 55
+
+    // 재귀함수 - 팩토리얼 구현
+    var fact = function (n) {
+      if (n === 0 || n === 1) {
+        return 1;
+      }
+      return n * fact(n - 1);
+    };
+
+    console.log(fact(5));
+
+    // 재귀함수 - 피보나치 수열
+    var fibo = function (n) {
+      if (n === 0) {
+        return 0;
+      } else if (n === 1) {
+        return 1;
+      }
+      return fibo(n - 1) + fibo(n - 2);
+    };
+
+    console.log(fibo(1));
+  </script>
+</body>
+
+</html>
