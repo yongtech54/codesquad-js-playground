@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[15-puzzle] HELLO 퍼즐 연습</title>
+  <style>
+    button {
+      font-size: 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>HELLO 퍼즐 연습</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>JS 활용하여 "H", "E", "L", "L", "O" 버튼으로 배치</li>
+    <li>"뒤집기", "밀어내기" 버튼 배치 (각각 핸들러 함수 작성)</li>
+    <li>"일치합니다" 문자열 표시</li>
+  </ul>
+
+  <div>
+    <h2 id="word">HELLO</h2>
+    <div id="puzzle">
+    </div>
+    <div id="btns">
+      <button onclick="reverse(event)">뒤집기</button>
+      <button onclick="shift(event)">밀어내기</button>
+    </div>
+    <p>Result >> 일치합니다</p>
+  </div>
+  <script src="15-puzzle1.js"></script>
+</body>
+
+</html>
