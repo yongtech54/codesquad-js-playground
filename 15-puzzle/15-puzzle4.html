@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[15-puzzle] 단어 퍼즐 게임</title>
+  <style>
+    button {
+      font-size: 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>단어 퍼즐 게임 - 4</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>코드 리팩토링</li>
+    <li>한 문제를 맞추면 다음 문제 출제</li>
+    <li>한 문제를 맞출 때 마다 상단에 "O"를 추가</li>
+    <li>세 문제 맞추는 경우 완료 문구 출력</li>
+  </ul>
+
+  <div>
+    <h2 id="word1"></h2>
+    <div id="word2">
+    </div>
+    <div id="btns">
+      <button onclick="swap()">Reverse</button>
+      <button onclick="shiftLeft()">Left</button>
+      <button onclick="shiftRight()">Right</button>
+    </div>
+    <div id="check">Result >> </div>
+  </div>
+  <script src="15-puzzle4.js"></script>
+</body>
+
+</html>
