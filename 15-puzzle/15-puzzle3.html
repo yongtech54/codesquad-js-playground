@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[15-puzzle] 랜덤 단어 퍼즐 연습</title>
+  <style>
+    button {
+      font-size: 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>랜덤 단어 퍼즐 연습 - 3</h1>
+  <h2>요구사항</h2>
+  <ul>
+    <li>Math.random()활용한 임의의 단어에 대한 기능 구현</li>
+    <li>무작위로 섞는 기능의 버튼 구현</li>
+  </ul>
+
+  <div>
+    <h2 id="word"></h2>
+    <div id="puzzle">
+    </div>
+    <div id="btns">
+      <button onclick="reverse()">Reverse</button>
+      <button onclick="shiftLeft()">Left</button>
+      <button onclick="shiftRight()">Right</button>
+      <button onclick="shuffle()">shuffle</button>
+    </div>
+    <div id="result">Result >> </div>
+  </div>
+  <script src="15-puzzle3.js"></script>
+</body>
+
+</html>
