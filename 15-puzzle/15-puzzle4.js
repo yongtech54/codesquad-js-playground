@@ -2,9 +2,14 @@
 var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
 var check = document.getElementById('check');
+var progress = document.getElementById('progress');
 
 // game object
-var game = { 'btns': [] };
+var game = {
+  'btns': [],
+  'point': 0,
+  'gameCount': 3
+};
 
 game.words = 'JavaScript,Java,HTML,CSS,React,Spring,Kotlin,MySQL,Programming,Code'.split(',');
 
@@ -24,62 +29,108 @@ game.addButtons = function () {
   }
 };
 
+game.removeAll = function () {
+  for (var i = 0; i < this.btns.length; i++) {
+    word2.removeChild(this.btns[i]);
+  }
+  this.btns = [];
+};
+
+game.isCorrect = function () {
+  return this.targetWord === this.targetWordArray.join('');
+};
+
+game.checkPoint = function () {
+  if (this.isCorrect()) {
+    this.point++;
+    this.removeAll();
+    this.init();
+    var str = '';
+    for (var i = 0; i < this.point; i++) {
+      str += 'O';
+    }
+    progress.innerHTML = "Your score >> " + str;
+  }
+
+  if (this.point === this.gameCount) {
+    alert('clear');
+    progress.innerHTML = 'ALL CLEAR';
+    this.point = 0;
+  }
+};
+
 game.display = function () {
-  if (this.targetWord === this.targetWordArray.join('')) {
+  if (this.isCorrect()) {
     check.innerHTML = '일치합니다!';
   } else {
     check.innerHTML = '일치하지않습니다!';
   }
 };
 
-game.init = function () {
-  this.choose();
-  this.addButtons();
-  shuffle();
+game.changeButtons = function () {
+  for (var i = 0; i < this.targetWordArray.length; i++) {
+    this.btns[i].innerHTML = this.targetWordArray[i];
+  }
+};
+
+game.shiftRight = function () {
+  var lastValue = this.targetWordArray.pop();
+  this.targetWordArray.unshift(lastValue);
+  this.changeButtons();
   this.display();
 };
 
-game.changeButtons = function () {
-  for (var i = 0; i < game.targetWordArray.length; i++) {
-    game.btns[i].innerHTML = game.targetWordArray[i];
-  }
-};
-
 var shiftRight = function () {
-  var lastValue = game.targetWordArray.pop();
-  game.targetWordArray.unshift(lastValue);
-  game.changeButtons();
-  game.display();
+  game.shiftRight();
+  game.checkPoint();
+}
+
+game.shiftLeft = function () {
+  var lastValue = this.targetWordArray.shift();
+  this.targetWordArray.push(lastValue);
+  this.changeButtons();
+  this.display();
 };
 
 var shiftLeft = function () {
-  var lastValue = game.targetWordArray.shift();
-  game.targetWordArray.push(lastValue);
-  game.changeButtons();
-  game.display();
+  game.shiftLeft();
+  game.checkPoint();
+
+};
+
+game.swap = function () {
+  var temp;
+  var n = this.targetWordArray.length;
+  for (var i = 0; i < Math.floor(n / 2); i++) {
+    temp = this.targetWordArray[i];
+    this.targetWordArray[i] = this.targetWordArray[n - 1 - i];
+    this.targetWordArray[n - 1 - i] = temp;
+  }
+  this.changeButtons();
+  this.display();
 };
 
 var swap = function () {
-  var temp;
-  var n = game.targetWordArray.length;
-  for (var i = 0; i < Math.floor(n / 2); i++) {
-    temp = game.targetWordArray[i];
-    game.targetWordArray[i] = game.targetWordArray[n - 1 - i];
-    game.targetWordArray[n - 1 - i] = temp;
-  }
-  game.changeButtons();
-  game.display();
+  game.swap();
+  game.checkPoint();
 };
 
-var shuffle = function () {
+game.shuffle = function () {
   var toggle = Math.floor(Math.random() * 2) === 0;
   if (toggle) {
-    swap();
+    this.swap();
   }
-  var n = Math.floor(Math.random() * game.targetWordArray.length);
+  var n = Math.floor(Math.random() * this.targetWordArray.length);
   for (var i = 0; i < n; i++) {
-    shiftRight();
+    this.shiftRight();
   }
+};
+
+game.init = function () {
+  this.choose();
+  this.addButtons();
+  this.shuffle();
+  this.display();
 };
 
 // main
