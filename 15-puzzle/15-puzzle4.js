@@ -3,6 +3,7 @@ var word1 = document.getElementById('word1');
 var word2 = document.getElementById('word2');
 var check = document.getElementById('check');
 var progress = document.getElementById('progress');
+var time = document.getElementById('time');
 
 // game object
 var game = {
@@ -10,7 +11,7 @@ var game = {
   'point': 0,
   'gameCount': 3
 };
-
+game.startTime = Date.now();
 game.words = 'JavaScript,Java,HTML,CSS,React,Spring,Kotlin,MySQL,Programming,Code'.split(',');
 
 game.choose = function () {
@@ -53,7 +54,9 @@ game.checkPoint = function () {
   }
 
   if (this.point === this.gameCount) {
-    alert('clear');
+    var yourTime = (Date.now() - startTime) / 1000;
+    alert('clear! Your record ... ' + yourTime + 'sec');
+    clearInterval(startGame);
     progress.innerHTML = 'ALL CLEAR';
     this.point = 0;
   }
@@ -120,12 +123,17 @@ game.shuffle = function () {
   if (toggle) {
     this.swap();
   }
-  var n = Math.floor(Math.random() * this.targetWordArray.length);
+
+  var max = Math.max(1, this.targetWordArray.length - 2);
+  var n = Math.floor(Math.random() * max) + 1;
+
   for (var i = 0; i < n; i++) {
     this.shiftRight();
   }
 };
-
+game.timeout = function () {
+  return Date.now();
+}
 game.init = function () {
   this.choose();
   this.addButtons();
@@ -133,5 +141,11 @@ game.init = function () {
   this.display();
 };
 
+game.countTime = function () {
+  time.innerHTML = "Time >>  " + (Date.now() - game.startTime) / 1000;
+}
+
+
 // main
+var startGame = setInterval(game.countTime, 20);
 game.init();
